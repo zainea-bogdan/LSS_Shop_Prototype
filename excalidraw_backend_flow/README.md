@@ -37,7 +37,7 @@ So, I made a diagram in two formats (Excalidraw and PNG) to ensure it can be acc
    - **POST:** createOrder;
    - **DELETE:** deleteOrder;
    - **PATCH:** updateDeliveryStatus (we use PATCH when we want to update only a part of an object, like delivery status from an order in our case);
-   - **PUT:** usef to update the entire order.
+   - **PUT:** use to update the entire order.
 
    If you're asking what is Postman, it is an API (Application Programming Interface) platform that provides a comprehensive set of tools for developers to design, build, test, document, and collaborate on APIs.
 
