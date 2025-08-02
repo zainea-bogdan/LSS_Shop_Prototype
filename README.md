@@ -14,7 +14,7 @@ Our goal is to simulate real-world software development by promoting **cross-fun
 
 > In the meantime, feel free to fork the repository and propose changes — we'd be happy to review and discuss them with our team. Thank you!
 
-## Project overview:
+## Project overview 😄:
 
 At this stage, the main features we aim to include in the project are:
 
