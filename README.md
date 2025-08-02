@@ -24,7 +24,7 @@ At this stage, the main features we aim to include in the project are:
 - Embedding a basic Google Map showing the Lenovo HQ location in Bucharest.
 
 
-## Future Features
+## Future Features :
 
 Following the development of the initial MVP/prototype, several additional features could be explored to enhance the project further:
 
