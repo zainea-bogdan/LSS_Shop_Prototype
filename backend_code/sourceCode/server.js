@@ -1,26 +1,25 @@
-const express=require("express")
-const AppRoutes=require('./routes/index')//it acceses the routes created in index for shop and order
-const DatabaseService=require('./services/database.service')//accesses the database service which connect the database from mongodb with the shop service
+const express=require("express")//import the express library to help set up the server
+const AppRoutes=require('./routes/index')//it brings in the routes we made for the shop and orders
+const DatabaseService=require('./services/database.service')//it brings in our code to connect to the database
 
-require('./config/shops')
-const dotenv=require('dotenv')
-dotenv.config(); //it accesses the data about shops from config folder
+const dotenv=require('dotenv');//this library helps us use a file with secret stuff, like our database password
+dotenv.config()//this loads the secret stuff from that file
 
-console.log(process.env.MONGO_CONNECTION_STRING) //we haven't yet the data about shops in MongoDB
+console.log(process.env.MONGO_CONNECTION_STRING) //this just prints our database connection string to the console to check if it's there
 
-const app=express();//connect the app to the server
-const port=3000;// me donno if this is correct
+const app=express();//we create our app using express
+const port=3000;//this is the port number our server will run on
 
-//we use express.json before /api approutes
-app.use(express.json());//i think this is for json format of the objects, like the server access json files, me donno if is correct
-app.use(express.urlencoded({extended: true}));//and this i think is for localhost, me donno :)
-app.use('/api', AppRoutes); //this part is for conect express with app routes
+//we use these two lines to handle data that comes in, use express.json before /api AppRoutes
+app.use(express.json());//this makes sure our app can understand JSON data
+app.use(express.urlencoded({extended: true}));//and this helps it understand data from forms and urls
+app.use('/api', AppRoutes); //this tells our app to use our routes for anything that starts with '/api'
 
-app.get("/", (req, res)=> {
-    res.send("Welcome to our project LSS Shop Prototype!");
-}) //that's a checkout, kinda
+app.get("/", (req, res)=> {//when someone goes to the home page ('/'), this code runs
+    res.send("Welcome to our project LSS Shop Prototype!");//it sends this message back to the user
+});
 
-app.listen(port, async ()=>{
-    console.log(`Server is running on http://localhost:${port}`);//this is part of the devops
-    await DatabaseService.connectToMongoDB();//it waits to connect to the data base from mongodb
-})
+app.listen(port, async ()=>{//this starts our server on the port we chose
+    console.log(`Server is running on http://localhost:${port}`);//we print a message to the console so we know the server is running
+    await DatabaseService.connectToMongoDB();//this waits for the database to connect before moving on
+});

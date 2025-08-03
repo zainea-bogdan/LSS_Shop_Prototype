@@ -1,10 +1,7 @@
-const express=require("express");
-const router=express.Router();// connect the server to the router
+const express=require("express");//import the express library
+const router=express.Router();//create a router to handle different pages
 
-const ShopRouter=require('./shop.routes')//creates variabke for the shop router
-const OrderRouter=require('./order.routes')//creates variable for the order router
+const ItemRouter=require('./item.routes')//bring in the routes we made for items
+router.use('/items', ItemRouter)//use the item routes for all paths that start with '/items'
 
-router.use('/shop', ShopRouter)//accesses the router of the shop
-router.use('/order', OrderRouter)//accesses the router of the order
-
-module.exports=router;//it exports the routes that have been created in this file
+module.exports=router;//export this router so other files can use it
